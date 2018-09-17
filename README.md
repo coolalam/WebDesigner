@@ -1,6 +1,8 @@
 # WebDesigner
 a web desginer based on html5/jquery pluggin/paper.js
+
 With the continuous development of Internet technology and application, the application software has gradually developed from single-machine or client/server to browser Browser/Server. The author has been working on the development technology stack of Microsoft Department, and has been transforming from vb, C + + to c_ # WinForm to asp.net web development. In recent years, the technology of Web front-end has developed rapidly. Although many excellent web front-end application frameworks have emerged, the visual component designer technology often stays in the independent exe application based on client-side, or the web application based on client-side earlier, such as activeX/flex/Silverlight/WPF, etc. with the rapid development of HTML 5 technology. As a result, pure js, cross-platform component designs have been proposed that at runtime component visuals are compatible with different browser displays without installing any plug-ins (it's exciting to think I've been bothered by ActiveX's browser security, flex and silverlight's plug-ins installation). There are many third-party graphical JS libraries based on canvas and svg, such as Graphics JS, Raphaejs, Paper JS, glfx. JS, and so on. The paperjs library will be selected as the third-party graphics API library for this project to render pictures, text and animation in the browser.
+
 Preliminary assumption that the final output of this project is only a JS file and CSS style file, initially named visual Designer. JS and visual Designer. css, and defined as a jQuery plug-in form, convenient for everyone to use.
 
 User scenario:
