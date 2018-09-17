@@ -5,7 +5,7 @@
  * Includes paper-full.js
  * http://paperjs.org
  *
- * Copyright alan.zhou coolalam@163.com
+ * author alan.zhou coolalam@163.com
  * Released under the MIT license
  *
  * Date: 2018/9/6
