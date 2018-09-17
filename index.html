@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>web可视化设计器1.5</title>
+    <script src="jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="paper-full.js" type="text/javascript"></script>
+    <script src="visualDesigner.1.5.js" type="text/javascript"></script>
+</head>
+<body>
+    <div>
+        <div><button id="btnSave">保存</button><button id="btnOpen">打开</button><input type="checkbox" id="chkDrawLine" />连线</div>
+        <div style="position:relative;height:300px">
+            <ul style="position:absolute;margin:0px;left:0px;top:0px;width:150px;bottom:0px;border:1px solid gray">
+                <li name="toolbox" draggable="true">圆</li>
+                <li name="toolbox" draggable="true">矩形</li>
+                <li name="toolbox" draggable="true">椭圆</li>
+            </ul>
+            <div style="position:absolute;left:152px;right:0px;top:0px;bottom:0px;overflow:auto">
+                <canvas width=1024 height=768 style="background-color:gray" id="designView"></canvas>
+            </div>
+        </div>
+
+        <hr />
+        <footer>
+            <p> - 日撸码千百行，不辞常做程序猿</p>
+        </footer>
+    </div>
+
+
+</body>
+</html>
+<script>
+    $(function () {
+        $('li[name="toolbox"]').each(function () {
+            $(this).on("dragstart", function (event) {
+                var evt = event || window.event;
+                if (evt.dataTransfer == undefined && evt.originalEvent != undefined) {
+                    var stext = $(evt.target)[0].innerText;
+                    evt.originalEvent.dataTransfer.setData("text", stext);
+                }
+                else if (evt.dataTransfer != undefined)
+                    evt.dataTransfer.setData("text", $(evt.target)[0].innerText);
+            });
+        });
+            
+        var view = $("#designView").visualDesigner({ model: runMode.designTime, content: "{\"text\":\"hello world\"}" });
+        $("#btnSave").on("click", function () {
+            debugger;
+            var content = view.getContent();
+            localStorage.setItem("visualdesigner", content);
+        })
+        $("#btnOpen").on("click", function () {
+            var content = localStorage.getItem("visualdesigner");
+            if (content)
+                view.open(content);
+        })
+        $("#chkDrawLine").on("click", function () {
+            var checked = $("#chkDrawLine").is(":checked");
+            view.setLineStatus(checked);
+        })
+    })
+</script>
